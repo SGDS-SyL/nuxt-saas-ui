@@ -26,6 +26,6 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English', file: 'en.json' },
     ],
     lazy: true,
-    langDir: join(currentDir, './lang'),
+    langDir: './lang',
   },
 })

@@ -5,7 +5,7 @@ import { createResolver, defineNuxtModule } from '@nuxt/kit'
 const currentDir = dirname(fileURLToPath(import.meta.url))
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
   css: [
     join(currentDir, './assets/css/tailwind.css'),
   ],
@@ -20,4 +20,12 @@ export default defineNuxtConfig({
       prefix: 'Ui',
     },
   ],
+  i18n: {
+    defaultLocale: 'en',
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+    ],
+    lazy: true,
+    langDir: './lang',
+  },
 })

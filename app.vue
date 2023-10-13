@@ -1,5 +1,5 @@
 <template>
   <div>
-    <UiButton>Hello</UiButton>
+    <UiButton>{{ $t('welcome') }}</UiButton>
   </div>
 </template>

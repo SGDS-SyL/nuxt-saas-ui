@@ -1,22 +1,20 @@
-import { fileURLToPath } from 'node:url'
-import { dirname, join } from 'node:path'
 import { createResolver } from '@nuxt/kit'
 
 const { resolve } = createResolver(import.meta.url)
-const currentDir = dirname(fileURLToPath(import.meta.url))
 
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
-  css: [
-    join(currentDir, './assets/css/tailwind.css'),
-  ],
+  alias: {
+    '@core': resolve('./'),
+  },
+  css: ['@core/assets/css/tailwind.css'],
   components: [
     {
-      path: join(currentDir, './components'),
+      path: '@core//components',
       extensions: ['.vue'],
     },
     {
-      path: join(currentDir, './components/ui'),
+      path: '@core/components/ui',
       extensions: ['.vue'],
       prefix: 'Ui',
     },
@@ -27,6 +25,6 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English', file: 'en.json' },
     ],
     lazy: true,
-    langDir: resolve('./lang'),
+    langDir: '@core/lang',
   },
 })

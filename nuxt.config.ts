@@ -1,6 +1,8 @@
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import { createResolver } from '@nuxt/kit'
 
+const { resolve } = createResolver(import.meta.url)
 const currentDir = dirname(fileURLToPath(import.meta.url))
 
 export default defineNuxtConfig({
@@ -25,6 +27,6 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English', file: 'en.json' },
     ],
     lazy: true,
-    langDir: 'lang',
+    langDir: resolve('./lang'),
   },
 })

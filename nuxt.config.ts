@@ -10,7 +10,7 @@ export default defineNuxtConfig({
   css: ['@core/assets/css/tailwind.css'],
   components: [
     {
-      path: '@core//components',
+      path: '@core/components',
       extensions: ['.vue'],
     },
     {
@@ -25,6 +25,6 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English', file: 'en.json' },
     ],
     lazy: true,
-    langDir: '@core/lang',
+    langDir: './lang',
   },
 })

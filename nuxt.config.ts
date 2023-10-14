@@ -12,7 +12,10 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxtjs/color-mode'],
+  typescript: {
+    typeCheck: true,
+  },
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode'],
   alias: {
     '@core': resolve('./'),
   },
@@ -24,14 +27,6 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
-  i18n: {
-    defaultLocale: 'en',
-    locales: [
-      { code: 'en', name: 'English', file: 'en.json' },
-    ],
-    lazy: true,
-    langDir: './lang',
-  },
   colorMode: {
     fallback: 'dark',
     classSuffix: '',

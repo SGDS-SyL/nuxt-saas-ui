@@ -73,7 +73,14 @@ function addDarkTheme(theme: ITheme): string {
   return style
 }
 
-export default defineNuxtPlugin(() => {
+function forceColorMode(theme: ITheme) {
+  if (!theme.force)
+    return
+
+  const { $colorMode } = useNuxtApp()
+  $colorMode.preference = theme.force
+}
+export default defineNuxtPlugin((nuxtApp) => {
   const { sgds } = useAppConfig()
   const theme: ITheme | undefined = sgds.theme
 
@@ -85,5 +92,9 @@ export default defineNuxtPlugin(() => {
 
   useHead({
     style: [{ innerHTML: style, tagPosition: 'bodyOpen' }],
+  })
+
+  nuxtApp.hook('app:mounted', () => {
+    forceColorMode(theme)
   })
 })

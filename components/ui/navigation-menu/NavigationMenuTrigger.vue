@@ -12,6 +12,7 @@ const props = defineProps<NavigationMenuTriggerProps & { class?: string }>()
 
 <template>
   <NavigationMenuTrigger
+    class="submenu-trigger"
     :class="cn(navigationMenuTriggerStyle(), 'group', props.class)"
     v-bind="props"
   >

@@ -1,3 +1,5 @@
+const themes = ['light', 'dark'] as const
+
 export interface ITheme {
   font?: string
   background?: {
@@ -10,4 +12,5 @@ export interface ITheme {
     light?: string
     dark?: string
   }
+  force?: typeof themes[number]
 }

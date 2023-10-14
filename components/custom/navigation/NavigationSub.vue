@@ -28,15 +28,18 @@ function checkIsActive(item: INavigationItem): boolean {
       <NavigationMenuLink as-child>
         <NuxtLink
           :to="child.link"
-          class="block border-border/70 text-sm select-none space-y-1 py-3 px-5 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+          class="flex gap-x-3 border-border/70 text-sm select-none space-y-1 py-3 px-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
           :class="[child.class, cIndex < menu.submenu!.length - 1 ? 'border-b' : '']"
         >
-          <div class="font-medium leading-none whitespace-nowrap">
-            {{ child.title }}
+          <component :is="child.icon" v-if="child.icon" class="text-primary/80 w-6" />
+          <div class="flex-1">
+            <div class="font-medium leading-none whitespace-nowrap">
+              {{ child.title }}
+            </div>
+            <p v-if="child.description" class="leading-snug text-muted-foreground mt-1">
+              {{ child.description }}
+            </p>
           </div>
-          <p v-if="child.description" class="leading-snug text-muted-foreground mt-1">
-            {{ child.description }}
-          </p>
         </NuxtLink>
       </NavigationMenuLink>
     </li>
@@ -48,15 +51,18 @@ function checkIsActive(item: INavigationItem): boolean {
         <NavigationMenuLink as-child>
           <NuxtLink
             :to="child.link"
-            class="block text-sm select-none space-y-1 rounded-md p-2.5 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+            class="flex gap-x-3 text-sm select-none space-y-1 rounded-md p-2.5 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
             :class="[child.class]"
           >
-            <div class="font-medium leading-none whitespace-nowrap">
-              {{ child.title }}
+            <component :is="child.icon" v-if="child.icon" class="text-primary/80 w-6" />
+            <div class="flex-1">
+              <div class="font-medium leading-none whitespace-nowrap">
+                {{ child.title }}
+              </div>
+              <p v-if="child.description" class="leading-snug text-muted-foreground mt-1">
+                {{ child.description }}
+              </p>
             </div>
-            <p v-if="child.description" class="leading-snug text-muted-foreground mt-1">
-              {{ child.description }}
-            </p>
           </NuxtLink>
         </NavigationMenuLink>
       </li>

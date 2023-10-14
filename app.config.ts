@@ -4,7 +4,7 @@ export default defineAppConfig({
     theme: {
       font: 'Inter var',
       background: {
-        primary: '#0000FF',
+        primary: '#1d4ed8',
       },
     },
     logo: {

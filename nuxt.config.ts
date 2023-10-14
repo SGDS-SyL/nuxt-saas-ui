@@ -3,7 +3,17 @@ import { createResolver } from '@nuxt/kit'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://rsms.me/inter/inter.css',
+        },
+      ],
+    },
+  },
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxtjs/color-mode'],
   alias: {
     '@core': resolve('./'),
   },
@@ -12,11 +22,7 @@ export default defineNuxtConfig({
     {
       path: '@core/components',
       extensions: ['.vue'],
-    },
-    {
-      path: '@core/components/ui',
-      extensions: ['.vue'],
-      prefix: 'Ui',
+      pathPrefix: false,
     },
   ],
   i18n: {
@@ -26,5 +32,9 @@ export default defineNuxtConfig({
     ],
     lazy: true,
     langDir: './lang',
+  },
+  colorMode: {
+    fallback: 'dark',
+    classSuffix: '',
   },
 })

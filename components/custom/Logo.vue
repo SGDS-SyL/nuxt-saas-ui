@@ -18,7 +18,7 @@ if (typeof logo === 'object') {
 </script>
 
 <template>
-  <NuxtLink :to="link" class="flex items-center gap-2">
+  <NuxtLink :to="link" class="flex items-center gap-x-2">
     <img
       :src="darkSrc"
       class="hidden dark:block"

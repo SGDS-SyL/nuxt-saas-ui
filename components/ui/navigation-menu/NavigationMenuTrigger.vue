@@ -17,7 +17,7 @@ const props = defineProps<NavigationMenuTriggerProps & { class?: string }>()
   >
     <slot />
     <ChevronDown
-      class="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
+      class="relative top-[1px] ml-1 h-4 w-4 transition duration-200 group-data-[state=open]:rotate-180 block"
       aria-hidden="true"
     />
   </NavigationMenuTrigger>

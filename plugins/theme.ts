@@ -11,7 +11,6 @@ function addPrimaryTheme(theme: ITheme): string {
   if (theme.background?.primary) {
     const primaryBg = useHexToHsl(theme.background.primary) ?? theme.background.primary
     style += `--primary: ${primaryBg};`
-    style += `--accent-foreground: ${primaryBg};`
   }
 
   if (theme.foreground?.primary) {

@@ -15,7 +15,7 @@ const emits = defineEmits<NavigationMenuRootEmits>()
 <template>
   <NavigationMenuRoot
     v-bind="props"
-    :class="cn('relative z-10 flex max-w-max flex-1 items-center justify-center', props.class)"
+    :class="cn('relative z-10 w-full lg:w-auto lg:order-1 mt-4 lg:mt-0 lg:flex hidden', props.class)"
     @update:model-value="emits('update:modelValue', $event)"
   >
     <slot />

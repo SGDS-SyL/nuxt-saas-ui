@@ -10,7 +10,7 @@ const props = defineProps<NavigationMenuListProps & { class?: string }>()
     v-bind="props"
     :class="
       cn(
-        'group flex flex-1 list-none items-center justify-center space-x-1',
+        'group flex flex-col lg:flex-row list-none lg:items-center lg:space-x-6',
         props.class,
       )
     "

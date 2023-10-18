@@ -1,4 +1,4 @@
-import * as convert from 'color-convert'
+import convert from 'color-convert'
 
 export function useHexToHsl(hex: string): string | null {
   if (!/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(hex))

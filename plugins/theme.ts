@@ -49,6 +49,7 @@ function addLightTheme(theme: ITheme): string {
 function addDarkTheme(theme: ITheme): string {
   let style = '.dark{'
   style += addThemeFont(theme)
+  style += addPrimaryTheme(theme)
 
   if (theme.background?.dark) {
     const darkBg = useHexToHsl(theme.background.dark) ?? theme.background.dark
